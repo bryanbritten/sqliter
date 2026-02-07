@@ -1,8 +1,11 @@
+#define _POSIX_C_SOURCE 200809L
+
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/types.h>
 #include <time.h>
 
 typedef struct {
@@ -18,6 +21,9 @@ void read_input(InputBuffer*);
 void close_buffer(InputBuffer*);
 
 int main(int argc, char *argv[]) {
+    (void)argc;
+    (void)argv;
+
     print_motd();
 
     InputBuffer* input_buffer = new_input_buffer();
