@@ -8,24 +8,24 @@ TEST_DIR := tests
 BUILD_DIR := build
 BIN_DIR := bin
 
-SERVER_BIN := $(BIN_DIR)/sqliter
+SQLITER_BIN := $(BIN_DIR)/sqliter
 TEST_BIN := $(BIN_DIR)/sqliter_tests
 
-SERVER_SRCS := \
+SQLITER_SRCS := \
 			   	$(SRC_DIR)/main.c
 
-SERVER_OBJS := $(SERVER_SRCS:%.c=$(BUILD_DIR)/%.o)
+SQLITER_OBJS := $(SQLITER_SRCS:%.c=$(BUILD_DIR)/%.o)
 
 TEST_SRCS := \
 			 	$(TEST_DIR)/tests.c
 
 TEST_OBJS := $(TEST_SRCS:%.c=$(BUILD_DIR)/%.o)
 
-all: $(SERVER_BIN)
+all: $(SQLITER_BIN)
 
-$(SERVER_BIN): $(SERVER_OBJS)
+$(SQLITER_BIN): $(SQLITER_OBJS)
 		@mkdir -p $(BIN_DIR)
-			$(CC) $(SERVER_OBJS) -o $@ $(LDFLAGS)
+			$(CC) $(SQLITER_OBJS) -o $@ $(LDFLAGS)
 
 tests: $(TEST_BIN)
 
